@@ -9,7 +9,8 @@ mongoose.connect(process.env.MONGO_URI).then(()=> console.log("Mongodb connected
 
 //import routes
 const userRoutes = require('./routes/userRoutes.js');
-
+app.set("view engine","ejs");
+app.use(express.static("public"));
 app.use(express.json());
 app.use('/users',userRoutes);
 
